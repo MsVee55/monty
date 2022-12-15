@@ -5,15 +5,15 @@
  */
 void clear_memory(void)
 {
-        stack_t *temp;
+	stack_t *temp;
 
-        /* Clear Data structure */
-        while (global.head)
-        {
-                temp = global.head->next;
-                free(global.head);
-                global.head = temp;
-        }
+	/* Clear Data structure */
+	while (global.head)
+	{
+		temp = global.head->next;
+		free(global.head);
+		global.head = temp;
+	}
 }
 
 /**
@@ -22,14 +22,14 @@ void clear_memory(void)
  */
 void free_tokenized(char **tokens)
 {
-        int i = 0;
+	int i = 0;
 
-        if (!tokens)
-                return;
-        while (tokens[i])
-        {
-                free(tokens[i]);
-                i++;
-        }
-        free(tokens);
+	if (!tokens)
+		return;
+	while (tokens[i])
+	{
+		free(tokens[i]);
+		i++;
+	}
+	free(tokens);
 }

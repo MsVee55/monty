@@ -5,12 +5,12 @@
  */
 void swap(void)
 {
-        stack_t *temp;
+	stack_t *temp;
 
-        temp = global.head->next;
-        global.head->next = temp->next;
-        temp->next = global.head;
-        global.head->prev = temp;
-        temp->prev = NULL;
-        global.head = temp;
+	temp = global.head->next;
+	global.head->next = temp->next;
+	temp->next = global.head;
+	global.head->prev = temp;
+	temp->prev = NULL;
+	global.head = temp;
 }
