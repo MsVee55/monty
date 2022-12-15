@@ -7,23 +7,23 @@
  */
 void rotr_handler(stack_t **stack, unsigned int line_number)
 {
-        stack_t *top, *bottom;
+	stack_t *top, *bottom;
 
-        if ((*stack) == NULL || (*stack)->next == NULL)
-                return;
+	if ((*stack) == NULL || (*stack)->next == NULL)
+		return;
 
-        top = (*stack);
-        bottom = (*stack);
-        while (bottom->next != NULL)
-                bottom = bottom->next;
+	top = (*stack);
+	bottom = (*stack);
+	while (bottom->next != NULL)
+		bottom = bottom->next;
 
-        bottom->prev->next = NULL;
-        (*stack) = bottom;
-        bottom->prev = *stack;
-        bottom->next = top;
-        top->prev = bottom;
+	bottom->prev->next = NULL;
+	(*stack) = bottom;
+	bottom->prev = *stack;
+	bottom->next = top;
+	top->prev = bottom;
 
-        (void)line_number;
+	(void)line_number;
 }
 
 
@@ -34,23 +34,23 @@ void rotr_handler(stack_t **stack, unsigned int line_number)
  */
 void rotl_handler(stack_t **stack, unsigned int line_number)
 {
-        stack_t *top, *bottom;
+	stack_t *top, *bottom;
 
-        if ((*stack) == NULL || (*stack)->next == NULL)
-                return;
+	if ((*stack) == NULL || (*stack)->next == NULL)
+		return;
 
-        top = (*stack);
-        bottom = (*stack);
-        while (bottom->next != NULL)
-                bottom = bottom->next;
+	top = (*stack);
+	bottom = (*stack);
+	while (bottom->next != NULL)
+		bottom = bottom->next;
 
-        top->next->prev = *stack;
-        (*stack) = top->next;
-        bottom->next = top;
-        top->next = NULL;
-        top->prev = bottom;
+	top->next->prev = *stack;
+	(*stack) = top->next;
+	bottom->next = top;
+	top->next = NULL;
+	top->prev = bottom;
 
-        (void)line_number;
+	(void)line_number;
 }
 
 /**
@@ -60,17 +60,17 @@ void rotl_handler(stack_t **stack, unsigned int line_number)
  */
 void pstr_handler(stack_t **stack, unsigned int line_number)
 {
-        stack_t *tmp = (*stack);
+	stack_t *tmp = (*stack);
 
-        while (tmp && tmp->n != 0 && (tmp->n > 0 && tmp->n <= 127))
-        {
-                if (tmp->n > 127 || tmp->n < 0)
-                        break;
-                printf("%c", tmp->n);
-                tmp = tmp->next;
-        }
+	while (tmp && tmp->n != 0 && (tmp->n > 0 && tmp->n <= 127))
+	{
+		if (tmp->n > 127 || tmp->n < 0)
+			break;
+		printf("%c", tmp->n);
+		tmp = tmp->next;
+	}
 
-        printf("\n");
+	printf("\n");
 
-        (void)line_number;
+	(void)line_number;
 }
